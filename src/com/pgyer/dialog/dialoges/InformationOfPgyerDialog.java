@@ -22,7 +22,7 @@ public class InformationOfPgyerDialog extends DialogWrapper {
         this.setResizable(false);
         informationOfPgyerPanel = new InformationOfPgyerPanel(this);
         setCancelButtonText("上一步");
-        setOKButtonText("取消");
+        setOKButtonText("关闭");
             init();
     }
 
