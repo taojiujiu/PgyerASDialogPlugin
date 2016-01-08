@@ -22,18 +22,11 @@ public class ShareOnPgyerAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
         final Project project = e.getData(CommonDataKeys.PROJECT);
-//        ShareOnPgyerDialog shareOnPgyerDialog = new ShareOnPgyerDialog(project);
-//
-//
-//        shareOnPgyerDialog.setTitle("蒲公英");
-//        DialogManager.show(shareOnPgyerDialog);
+        ShareOnPgyerDialog shareOnPgyerDialog = new ShareOnPgyerDialog(project);
 
 
-        InformationOfPgyerDialog informationOfPgyerDialog = new InformationOfPgyerDialog(project);
-        DialogManager.show(informationOfPgyerDialog);
-
-//
-
+        shareOnPgyerDialog.setTitle("蒲公英");
+        DialogManager.show(shareOnPgyerDialog);
 
 
     }
