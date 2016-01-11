@@ -22,6 +22,8 @@ public class ShareOnPgyerDialog extends DialogWrapper {
     public ShareOnPgyerDialog(@Nullable Project project) {
 
         super(project);
+        this.setResizable(false);
+
         shareOnPgyerPanel = new ShareOnPgyerPanel(this);
 
         if(PgyASPluginKeysManager.instance().getApiKey() != null){

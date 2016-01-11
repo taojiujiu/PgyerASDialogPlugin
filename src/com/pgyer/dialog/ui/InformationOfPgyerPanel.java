@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.VolatileImage;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -52,6 +53,15 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
         shorttiltle.setVisible(false);
         shortUrl.setVisible(false);
         check.setVisible(false);
+
+
+//        ImageIcon imageIcon= new ImageIcon("/Users/Tao9jiu/Downloads/logo.png");
+//        JLabel label = new JLabel();
+//        label.setIcon(imageIcon);
+//        icon.setSize(200,200);
+//        icon.add(label);
+
+
 
         if(apkInformation != null){
             appname.setText(apkInformation.getName());
@@ -201,5 +211,21 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
     }
 
 
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+//        JLabel
+//        ImageIcon imageIcon = new ImageIcon("/images/icon.png");
+//        JLabel icon1 = new JLabel();
+////        icon1.setIcon(imageIcon);
+//        icon1.setSize(60, 60);
+//        icon1.setBackground(Color.red);
 
+        ImageIcon imageIcon= new ImageIcon("/Users/Tao9jiu/Downloads/logo.png");
+        JLabel label = new JLabel();
+        label.setIcon(imageIcon);
+        icon.setSize(200, 200);
+        icon.add(label);
+
+
+    }
 }

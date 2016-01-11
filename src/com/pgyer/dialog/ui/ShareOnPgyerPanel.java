@@ -36,11 +36,11 @@ public class ShareOnPgyerPanel {
     private JLabel labelukey;
     private JLabel getappkey;
     private JLabel getukey;
-    private JButton newsettingBtn;
     private JPanel panel;
     private JLabel apkPath;
     private JTextArea uoloadLog;
     private JLabel warning;
+    private JLabel tips;
 
 
     public ShareOnPgyerDialog shareOnPgyerDialog;
@@ -55,8 +55,8 @@ public class ShareOnPgyerPanel {
 
         this.shareOnPgyerDialog = shareOnPgyerDialog;
         mainColor = new Color(26,188,156);
+
         apkInformation = ApkInformation.getInstance();
-        newsettingBtn.setVisible(false);
 
         getappkey.addMouseListener(new MouseListener() {
             @Override
