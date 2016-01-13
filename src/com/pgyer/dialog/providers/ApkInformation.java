@@ -62,7 +62,7 @@ public class ApkInformation {
 
             this.versionName = apkMeta.getVersionName();
             this.versionCode = apkMeta.getVersionCode().toString();
-//            this.bundleId = apkMeta.getPackageName();
+            this.bundleId = apkMeta.getPackageName();
             this.name = apkMeta.getLabel();
             this.icon = apkMeta.getIcon().getPath();
             apkParser.close();
@@ -137,5 +137,11 @@ public class ApkInformation {
         this.checkId = checkId;
     }
 
+    public String getBundleId() {
+        return bundleId;
+    }
 
+    public void setBundleId(String bundleId) {
+        this.bundleId = bundleId;
+    }
 }

@@ -23,11 +23,11 @@ public class ShareOnPgyerAction extends AnAction {
 
 
         shareOnPgyerDialog.setTitle("蒲公英");
-//        DialogManager.show(shareOnPgyerDialog);
+        DialogManager.show(shareOnPgyerDialog);
 
 
-        InformationOfPgyerDialog informationOfPgyerDialog = new InformationOfPgyerDialog(project);
-        DialogManager.show(informationOfPgyerDialog);
+//        InformationOfPgyerDialog informationOfPgyerDialog = new InformationOfPgyerDialog(project);
+//        DialogManager.show(informationOfPgyerDialog);
 
 
     }

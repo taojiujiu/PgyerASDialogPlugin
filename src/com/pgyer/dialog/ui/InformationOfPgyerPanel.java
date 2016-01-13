@@ -40,6 +40,7 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
     private JPanel icon;
 
     public JLabel iconimage;
+    private JLabel identifer;
 
     public InformationOfPgyerDialog informationOfPgyerDialog;
     public UploadService uploadService;
@@ -60,35 +61,30 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
             @Override
             public void run() {
 //                Image image = Toolkit.getDefaultToolkit().getImage("/Users/Tao9jiu/Downloads/app.png");
-                String   iconpath = SearchFile.getInstance().queryIcon(apkInformation.getIcon());
-                Image image =Toolkit.getDefaultToolkit().getImage(iconpath);
+                if(apkInformation.getIcon() != null) {
+                    String iconpath = SearchFile.getInstance().queryIcon(apkInformation.getIcon());
+                    Image image = Toolkit.getDefaultToolkit().getImage(iconpath);
+                    ImageIcon icon_ = new ImageIcon(image);
+                    icon_.setImage(icon_.getImage().getScaledInstance(70, 70, Image.SCALE_AREA_AVERAGING));
+                    iconimage.setIcon(icon_);
+                }else {
+                    ImageIcon icon_ = new ImageIcon("icon.png");
+                    icon_.setImage(icon_.getImage().getScaledInstance(70, 70, Image.SCALE_AREA_AVERAGING));
+                    iconimage.setIcon(icon_);
 
-
-                ImageIcon icon_ = new ImageIcon(image);
-                icon_.setImage(icon_.getImage().getScaledInstance(70,70,Image.SCALE_DEFAULT));
-
-                iconimage.setIcon(icon_);
+                }
                 iconimage.setVisible(true);
-
             }
         });
-
-
-
-
-
 
         shorttiltle.setVisible(false);
         shortUrl.setVisible(false);
         check.setVisible(false);
 
-
-
         if(apkInformation != null){
             appname.setText(apkInformation.getName());
-            appcodename.setText(apkInformation.getVersionName());
-
-
+            appcodename.setText(apkInformation.getVersionName()+" ( "+apkInformation.getVersionCode()+" ) ");
+            identifer.setText(apkInformation.getBundleId());
 
             progressBar.setVisible(false);
             if(apkInformation.getaShort()!= null){
@@ -103,7 +99,6 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
                     performUploadValidation();
-
 
                 }
             });
@@ -200,10 +195,8 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
             Desktop.getDesktop().browse(new URI( url));
         } catch (IOException e1) {
             e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-//            Utils.postErrorNoticeTOSlack(e1);
         } catch (URISyntaxException e1) {
             e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-//            Utils.postErrorNoticeTOSlack(e1);
         }
     }
 
@@ -211,10 +204,7 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
      * Performs validation before uploading the build to test flight, if everything is in order, the build is sent
      */
     public void performUploadValidation() {
-
-
         uploadBuild();
-
 
     }
 
@@ -225,15 +215,9 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
 
         upload.setEnabled(false);
 
-//
-
         uploadService.uploadAPKfile(PgyASPluginKeysManager.instance().getApiKey(), PgyASPluginKeysManager.instance().getuKey(),
                 apkInformation.getFilePath(), ApkInformation.getInstance().getTextlog(), InformationOfPgyerPanel.this);
     }
-
-
-
-
 
 
 }

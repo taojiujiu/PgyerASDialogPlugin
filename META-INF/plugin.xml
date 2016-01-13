@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.pgyer.as.plugin</id>
   <name>PGY Dialog</name>
-  <version>1.1</version>
+  <version>1.2</version>
   <vendor email="support@pgyer.com" url="http://www.pgyer.com">蒲公英</vendor>
 
   <description><![CDATA[
