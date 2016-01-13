@@ -3,8 +3,6 @@ package com.pgyer.dialog.dialoges;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.ui.DialogWrapper;
-import com.intellij.openapi.ui.Messages;
-import com.pgyer.dialog.providers.ApkInformation;
 import com.pgyer.dialog.ui.InformationOfPgyerPanel;
 import git4idea.DialogManager;
 import org.jetbrains.annotations.Nullable;
@@ -21,6 +19,7 @@ public class InformationOfPgyerDialog extends DialogWrapper {
         super(project);
         this.setResizable(false);
         informationOfPgyerPanel = new InformationOfPgyerPanel(this);
+//        appInformationPanel = new AppInformationPanel(this);
         setCancelButtonText("上一步");
         setOKButtonText("关闭");
             init();
@@ -30,6 +29,7 @@ public class InformationOfPgyerDialog extends DialogWrapper {
     @Override
     protected JComponent createCenterPanel() {
         return informationOfPgyerPanel.getPanel();
+//        return  appInformationPanel.getPanel();
     }
 
 

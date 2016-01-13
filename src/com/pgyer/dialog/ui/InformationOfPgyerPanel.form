@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="8" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="342" y="20" width="464" height="296"/>
+      <xy x="342" y="20" width="464" height="316"/>
     </constraints>
     <properties>
       <enabled value="true"/>
@@ -12,22 +12,24 @@
     <children>
       <component id="1181b" class="javax.swing.JLabel">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="105" height="25"/>
             <preferred-size width="105" height="25"/>
             <maximum-size width="105" height="25"/>
           </grid>
         </constraints>
         <properties>
+          <horizontalAlignment value="4"/>
+          <horizontalTextPosition value="4"/>
           <text value="名称"/>
         </properties>
       </component>
       <component id="f75e8" class="javax.swing.JLabel" binding="appname">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="315" height="25"/>
-            <preferred-size width="315" height="25"/>
-            <maximum-size width="315" height="25"/>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="250" height="25"/>
+            <preferred-size width="250" height="25"/>
+            <maximum-size width="250" height="25"/>
           </grid>
         </constraints>
         <properties>
@@ -37,19 +39,21 @@
       </component>
       <component id="b8fb0" class="javax.swing.JLabel">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="105" height="25"/>
             <preferred-size width="105" height="25"/>
             <maximum-size width="105" height="25"/>
           </grid>
         </constraints>
         <properties>
+          <horizontalAlignment value="4"/>
+          <horizontalTextPosition value="4"/>
           <text value="版本号"/>
         </properties>
       </component>
       <component id="afca8" class="javax.swing.JLabel" binding="appcodename">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="315" height="25"/>
             <preferred-size width="315" height="25"/>
             <maximum-size width="315" height="25"/>
@@ -62,19 +66,21 @@
       </component>
       <component id="e074" class="javax.swing.JLabel" binding="shorttiltle">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="105" height="25"/>
             <preferred-size width="105" height="25"/>
             <maximum-size width="105" height="25"/>
           </grid>
         </constraints>
         <properties>
+          <horizontalAlignment value="4"/>
+          <horizontalTextPosition value="4"/>
           <text value="下载短连接"/>
         </properties>
       </component>
       <component id="74702" class="javax.swing.JProgressBar" binding="progressBar">
         <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="315" height="25"/>
             <preferred-size width="315" height="25"/>
             <maximum-size width="315" height="25"/>
@@ -84,7 +90,7 @@
       </component>
       <component id="44467" class="javax.swing.JLabel" binding="shortUrl">
         <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="315" height="25"/>
             <preferred-size width="315" height="25"/>
             <maximum-size width="315" height="25"/>
@@ -97,7 +103,7 @@
       </component>
       <component id="48698" class="javax.swing.JButton" binding="upload">
         <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="315" height="32"/>
             <preferred-size width="315" height="32"/>
             <maximum-size width="315" height="32"/>
@@ -109,7 +115,7 @@
       </component>
       <component id="8cc0d" class="javax.swing.JLabel">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="5" fill="0" indent="0" use-parent-layout="false">
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="5" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="105" height="10"/>
             <preferred-size width="105" height="10"/>
             <maximum-size width="105" height="10"/>
@@ -117,12 +123,16 @@
         </constraints>
         <properties>
           <font size="12"/>
+          <horizontalAlignment value="4"/>
+          <horizontalTextPosition value="2"/>
           <text value="(VersionName)"/>
+          <verticalAlignment value="0"/>
+          <verticalTextPosition value="1"/>
         </properties>
       </component>
       <component id="7695e" class="javax.swing.JLabel" binding="check">
         <constraints>
-          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="315" height="25"/>
             <preferred-size width="315" height="25"/>
             <maximum-size width="315" height="25"/>
@@ -135,40 +145,13 @@
           <text value="上传成功"/>
         </properties>
       </component>
-      <grid id="dea92" binding="icon" custom-create="true" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints>
-          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="true">
-            <minimum-size width="315" height="80"/>
-            <preferred-size width="315" height="80"/>
-            <maximum-size width="315" height="80"/>
-          </grid>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children>
-          <component id="77e14" class="javax.swing.JLabel" binding="iconimage">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value=""/>
-            </properties>
-          </component>
-          <vspacer id="2f3fa">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </vspacer>
-        </children>
-      </grid>
       <grid id="c870e" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <minimum-size width="2" height="25"/>
-            <preferred-size width="2" height="25"/>
-            <maximum-size width="2" height="25"/>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="true">
+            <minimum-size width="0" height="25"/>
+            <preferred-size width="0" height="25"/>
+            <maximum-size width="0" height="25"/>
           </grid>
         </constraints>
         <properties/>
@@ -184,10 +167,10 @@
       <grid id="626a6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <minimum-size width="2" height="25"/>
-            <preferred-size width="2" height="25"/>
-            <maximum-size width="2" height="25"/>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="0" height="25"/>
+            <preferred-size width="0" height="25"/>
+            <maximum-size width="0" height="25"/>
           </grid>
         </constraints>
         <properties/>
@@ -197,7 +180,7 @@
       <grid id="4886a" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <minimum-size width="2" height="25"/>
             <preferred-size width="2" height="25"/>
             <maximum-size width="2" height="25"/>
@@ -206,6 +189,30 @@
         <properties/>
         <border type="none"/>
         <children/>
+      </grid>
+      <grid id="dea92" binding="icon" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="true">
+            <minimum-size width="315" height="80"/>
+            <preferred-size width="315" height="80"/>
+            <maximum-size width="315" height="80"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="77e14" class="javax.swing.JLabel" binding="iconimage">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <horizontalAlignment value="2"/>
+              <horizontalTextPosition value="2"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
       </grid>
     </children>
   </grid>

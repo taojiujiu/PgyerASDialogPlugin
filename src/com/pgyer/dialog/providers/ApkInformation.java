@@ -3,6 +3,7 @@ package com.pgyer.dialog.providers;
 import net.dongliu.apk.parser.ApkParser;
 import net.dongliu.apk.parser.bean.ApkMeta;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -135,4 +136,6 @@ public class ApkInformation {
     public void setCheckId(boolean checkId) {
         this.checkId = checkId;
     }
+
+
 }

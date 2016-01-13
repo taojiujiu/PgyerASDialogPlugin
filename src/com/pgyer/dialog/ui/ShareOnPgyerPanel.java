@@ -13,6 +13,7 @@ import com.pgyer.dialog.dialoges.ShareOnPgyerDialog;
 import com.pgyer.dialog.providers.ApkInformation;
 import com.pgyer.dialog.providers.PgyASPluginKeysManager;
 import com.pgyer.dialog.utils.ModulesManager;
+import com.pgyer.dialog.utils.SearchFile;
 import com.pgyer.dialog.utils.Utils;
 
 import javax.swing.*;
@@ -173,6 +174,9 @@ public class ShareOnPgyerPanel {
                 apkAbsolutePath = filePath;
                 apkInformation.initPath(apkAbsolutePath);
                 apkInformation.setFilePath(apkAbsolutePath);
+
+                SearchFile.getInstance().initPath(apkInformation.filePath);
+
                 apkPath.setText(splitPath(filePath));
 
                 // update the build version fields too
@@ -220,7 +224,11 @@ public class ShareOnPgyerPanel {
 
                         apkPath.setText(splitPath(filePath));
                         apkInformation.initPath(apkAbsolutePath);
+
                         apkInformation.setFilePath(apkAbsolutePath);
+
+                        SearchFile.getInstance().initPath(apkInformation.filePath);
+
 
 
                         // save the file path

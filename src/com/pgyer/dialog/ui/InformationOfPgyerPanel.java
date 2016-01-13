@@ -11,7 +11,9 @@ import com.pgyer.dialog.dialoges.ShareOnPgyerDialog;
 import com.pgyer.dialog.providers.ApkInformation;
 import com.pgyer.dialog.providers.PgyASPluginKeysManager;
 import com.pgyer.dialog.providers.UploadService;
+import com.pgyer.dialog.utils.SearchFile;
 import git4idea.DialogManager;
+import sun.awt.image.ToolkitImage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +21,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.VolatileImage;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -37,7 +38,6 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
     private JPanel panel;
     private JLabel shorttiltle;
     private JPanel icon;
-    private JButton backbutton;
 
     public JLabel iconimage;
 
@@ -47,19 +47,40 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
 
     public InformationOfPgyerPanel(final InformationOfPgyerDialog informationOfPgyerDialog) {
 
+
         this.informationOfPgyerDialog = informationOfPgyerDialog;
         uploadService  = new UploadService();
         apkInformation = ApkInformation.getInstance();
+        String iconpath = apkInformation.getIcon();
+
+        icon.setVisible(true);
+
+
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+//                Image image = Toolkit.getDefaultToolkit().getImage("/Users/Tao9jiu/Downloads/app.png");
+                String   iconpath = SearchFile.getInstance().queryIcon(apkInformation.getIcon());
+                Image image =Toolkit.getDefaultToolkit().getImage(iconpath);
+
+
+                ImageIcon icon_ = new ImageIcon(image);
+                icon_.setImage(icon_.getImage().getScaledInstance(70,70,Image.SCALE_DEFAULT));
+
+                iconimage.setIcon(icon_);
+                iconimage.setVisible(true);
+
+            }
+        });
+
+
+
+
+
+
         shorttiltle.setVisible(false);
         shortUrl.setVisible(false);
         check.setVisible(false);
-
-
-//        ImageIcon imageIcon= new ImageIcon("/Users/Tao9jiu/Downloads/logo.png");
-//        JLabel label = new JLabel();
-//        label.setIcon(imageIcon);
-//        icon.setSize(200,200);
-//        icon.add(label);
 
 
 
@@ -115,7 +136,7 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
                 }
             });
         }
-
+        icon.validate();
     }
 
     public JPanel getPanel() {
@@ -207,25 +228,12 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
 //
 
         uploadService.uploadAPKfile(PgyASPluginKeysManager.instance().getApiKey(), PgyASPluginKeysManager.instance().getuKey(),
-                apkInformation.getFilePath(),ApkInformation.getInstance().getTextlog(), InformationOfPgyerPanel.this);
+                apkInformation.getFilePath(), ApkInformation.getInstance().getTextlog(), InformationOfPgyerPanel.this);
     }
 
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-//        JLabel
-//        ImageIcon imageIcon = new ImageIcon("/images/icon.png");
-//        JLabel icon1 = new JLabel();
-////        icon1.setIcon(imageIcon);
-//        icon1.setSize(60, 60);
-//        icon1.setBackground(Color.red);
-
-        ImageIcon imageIcon= new ImageIcon("/Users/Tao9jiu/Downloads/logo.png");
-        JLabel label = new JLabel();
-        label.setIcon(imageIcon);
-        icon.setSize(200, 200);
-        icon.add(label);
 
 
-    }
+
+
 }

@@ -4,13 +4,9 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.Messages;
-import com.intellij.openapi.util.IconLoader;
 import com.pgyer.dialog.dialoges.InformationOfPgyerDialog;
 import com.pgyer.dialog.dialoges.ShareOnPgyerDialog;
-import com.pgyer.dialog.dialoges.TestDialog;
 import com.pgyer.dialog.providers.ApkInformation;
-import com.pgyer.dialog.providers.PgyASPluginKeysManager;
 import git4idea.DialogManager;
 
 /**
@@ -27,9 +23,11 @@ public class ShareOnPgyerAction extends AnAction {
 
 
         shareOnPgyerDialog.setTitle("蒲公英");
-        DialogManager.show(shareOnPgyerDialog);
-//        TestDialog testDialog = new TestDialog(project);
-//        DialogManager.show(testDialog);
+//        DialogManager.show(shareOnPgyerDialog);
+
+
+        InformationOfPgyerDialog informationOfPgyerDialog = new InformationOfPgyerDialog(project);
+        DialogManager.show(informationOfPgyerDialog);
 
 
     }
