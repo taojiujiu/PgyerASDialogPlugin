@@ -83,6 +83,9 @@ public class SearchFile
                     if (this.beforePath != null) {
                         FileOperate.getInstance().delFile(this.beforePath);
                     }
+                    if(Storage.getAppDataFolder().exists()){
+                        FileOperate.getInstance().delAllFile(Storage.getAppDataFolder().getPath());
+                    }
                     path = Storage.getAppDataFolder().getPath() + "/ax" + System.currentTimeMillis() + ".png";
                     this.beforePath = path;
                     OutputStream outputStream = new FileOutputStream(path);

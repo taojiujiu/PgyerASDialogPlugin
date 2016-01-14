@@ -14,6 +14,7 @@ public class Storage
         String dataFile = (os.contains("MAC")) ? "Library/Caches/pgyer" : ".pgyer";
         File file = new File(System.getProperty("user.home"), dataFile);
         file.mkdirs();
+
         return     file;
     }
 

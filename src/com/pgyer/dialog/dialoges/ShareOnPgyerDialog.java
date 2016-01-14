@@ -9,15 +9,18 @@ import com.pgyer.dialog.providers.PgyASPluginKeysManager;
 import com.pgyer.dialog.providers.UploadService;
 import com.pgyer.dialog.ui.ShareOnPgyerPanel;
 import git4idea.DialogManager;
+import org.apache.commons.compress.archivers.zip.ZipFile;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import java.io.*;
 
 /**
  * Created by Tao9jiu on 16/1/6.
  */
 public class ShareOnPgyerDialog extends DialogWrapper {
     public ShareOnPgyerPanel shareOnPgyerPanel;
+    Boolean notEmpty;
 
     public ShareOnPgyerDialog(@Nullable Project project) {
 
@@ -68,9 +71,21 @@ public class ShareOnPgyerDialog extends DialogWrapper {
         }
 
 
-
-
-        if (ApkInformation.getInstance().getFilePath() != null && shareOnPgyerPanel.getApkPath() != "") {
+        File file = new File(ApkInformation.getInstance().getFilePath());
+        try {
+            InputStream in= new FileInputStream(file);
+            if(in.available()!= 0){
+                notEmpty = true;
+            }else {
+                notEmpty =false;
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (ApkInformation.getInstance().getFilePath() != null && shareOnPgyerPanel.getApkPath() != ""&&notEmpty
+                ) {
             DialogManager.show(informationOfPgyerDialog);
         } else {
                 Messages.showErrorDialog("请选择正确的文件", "错误提示");

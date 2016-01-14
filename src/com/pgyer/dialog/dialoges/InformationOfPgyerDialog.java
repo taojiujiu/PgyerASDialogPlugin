@@ -39,5 +39,6 @@ public class InformationOfPgyerDialog extends DialogWrapper {
         ShareOnPgyerDialog shareOnPgyerDialog = new ShareOnPgyerDialog(project);
         ApkInformation.getInstance().setaShort(null);
         DialogManager.show(shareOnPgyerDialog);
+
     }
 }
