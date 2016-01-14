@@ -1,5 +1,6 @@
 package com.pgyer.dialog.providers;
 
+import com.pgyer.dialog.utils.SearchFile;
 import net.dongliu.apk.parser.ApkParser;
 import net.dongliu.apk.parser.bean.ApkMeta;
 
@@ -42,6 +43,7 @@ public class ApkInformation {
         if(this.filePath.isEmpty())  return;
         parseApk(this.filePath);
         setFilePath(url);
+//        getImageIconPath();
     }
 
     public void parseApk(String url){
@@ -117,5 +119,12 @@ public class ApkInformation {
     }
     public String getBundleId() {
         return bundleId;
+    }
+
+
+    public String  getImageIconPath(){
+        String iconpath = SearchFile.getInstance().queryIcon(apkInformation.getIcon());
+
+        return iconpath;
     }
 }

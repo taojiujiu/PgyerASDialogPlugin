@@ -148,8 +148,10 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
                 check.setVisible(true);
                 check.setText("上传成功");
                 shortUrl.setText(ApkInformation.getInstance().getaShort() + "  点击打开");
+
             }
         });
+
     }
 
     @Override

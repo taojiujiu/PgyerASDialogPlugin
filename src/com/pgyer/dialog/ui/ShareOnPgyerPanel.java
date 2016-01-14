@@ -253,18 +253,17 @@ public class ShareOnPgyerPanel {
 
             apkPath.setText(splitPath(filePath));
             apkInformation.initPath(apkAbsolutePath);
-
+            SearchFile.getInstance().initPath(apkInformation.filePath);
         } else {
             // get the best matching module for this project and set it's file path
             previouslySelectedModule = ModulesManager.instance().getMostImportantModule();
             String filePath = ModulesManager.instance().getAndroidApkPath(previouslySelectedModule);
-
             // the file was selected so add it to the text field
             filePath = parsefilePath(filePath);
             apkAbsolutePath = filePath;
-
             apkPath.setText(splitPath(filePath));
             apkInformation.initPath(apkAbsolutePath);
+            SearchFile.getInstance().initPath(apkInformation.filePath);
         }
 
         // set the model of the modules
@@ -282,6 +281,7 @@ public class ShareOnPgyerPanel {
         }
         // the file was selected so add it to the text field
         File file = new File(filePath) ;
+
         if(!file.exists() || filePath.toLowerCase().indexOf(".apk") < 0)    {
             filePath = "";
         }
@@ -308,6 +308,7 @@ public class ShareOnPgyerPanel {
     public void updateBuildVersionFields() {
         Module module = ModulesManager.instance().getModuleByName((String) projectcombo.getSelectedItem());
         // update the code and name text fields manifest build version code and name values
+
         String[] apk = new String[3];
         if(apkAbsolutePath != null){
             apkInformation.initPath(apkAbsolutePath);
