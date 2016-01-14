@@ -23,29 +23,18 @@ public class ShareOnPgyerDialog extends DialogWrapper {
 
         super(project);
         this.setResizable(false);
-
         shareOnPgyerPanel = new ShareOnPgyerPanel(this);
-
         if(PgyASPluginKeysManager.instance().getApiKey() != null){
-
             shareOnPgyerPanel.setAppkeyinput(PgyASPluginKeysManager.instance().getApiKey());
         }
 
-
-
         if(PgyASPluginKeysManager.instance().getuKey() != null){
-
             shareOnPgyerPanel.setuKeyinput(PgyASPluginKeysManager.instance().getuKey());
         }
 
-
         setOKButtonText("下一步");
         setCancelButtonText("取消");
-
-
-
         init();
-
     }
 
     @Nullable
@@ -54,14 +43,12 @@ public class ShareOnPgyerDialog extends DialogWrapper {
         return shareOnPgyerPanel.getPanel();
     }
 
-
     @Override
     public void doOKAction() {
+
         super.doOKAction();
         final Project project = ProjectManager.getInstance().getDefaultProject();
-
         InformationOfPgyerDialog informationOfPgyerDialog = new InformationOfPgyerDialog(project);
-
         informationOfPgyerDialog.setTitle("上传到蒲公英");
         String appkey = this.shareOnPgyerPanel.getAppkeyInput();
         String uploadLog = this.shareOnPgyerPanel.getuploadLog();
@@ -70,12 +57,12 @@ public class ShareOnPgyerDialog extends DialogWrapper {
             PgyASPluginKeysManager.instance().setApiKey(appkey);
         }
 
-
         String ukey = this.shareOnPgyerPanel.getUkeyinput();
 
         if(ukey != null && ukey.length()>3){
             PgyASPluginKeysManager.instance().setuKey(ukey);
         }
+
         if(uploadLog != null){
             ApkInformation.getInstance().setTextlog(uploadLog);
         }
@@ -86,24 +73,8 @@ public class ShareOnPgyerDialog extends DialogWrapper {
         if (ApkInformation.getInstance().getFilePath() != null && shareOnPgyerPanel.getApkPath() != "") {
             DialogManager.show(informationOfPgyerDialog);
         } else {
-
                 Messages.showErrorDialog("请选择正确的文件", "错误提示");
-
-
-
         }
-
-//        if (ApkInformation.getInstance().getName() == null) {
-////            Messages.showErrorDialog("请在上传信息对话框选择文件在上传","错误提示");
-//
-//
-//        } else {
-//            final Project project = e.getData(CommonDataKeys.PROJECT);
-//            InformationOfPgyerDialog informationOfPgyerDialog = new InformationOfPgyerDialog(project);
-//            informationOfPgyerDialog.setTitle("上传到蒲公英");
-//            DialogManager.show(informationOfPgyerDialog);
-//
-//        }
 
 
     }

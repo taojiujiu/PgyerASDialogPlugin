@@ -20,7 +20,6 @@ public class ApkInformation {
     public String filePath;
     public String textlog;
     public static ApkInformation apkInformation;
-    public boolean checkId;
 
     public ApkInformation(){
         apkInformation = this;
@@ -39,9 +38,6 @@ public class ApkInformation {
     }
 
     public void initPath(String url){
-//        if(this.filePath == url){
-//            return ;
-//        }
         this.filePath = url;
         if(this.filePath.isEmpty())  return;
         parseApk(this.filePath);
@@ -53,13 +49,6 @@ public class ApkInformation {
         try {
             apkParser = new ApkParser(new File(url));
             ApkMeta apkMeta = apkParser.getApkMeta();
-
-            System.out.println(apkMeta.getLabel());
-            System.out.println(apkMeta.getPackageName());
-            System.out.println(apkMeta.getVersionCode());
-            System.out.println(apkMeta.getLabel());
-            System.out.println(apkMeta.getIcon().getPath());
-
             this.versionName = apkMeta.getVersionName();
             this.versionCode = apkMeta.getVersionCode().toString();
             this.bundleId = apkMeta.getPackageName();
@@ -71,7 +60,6 @@ public class ApkInformation {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
     }
-
     public String getName() {
         return name;
     }
@@ -120,7 +108,6 @@ public class ApkInformation {
         this.filePath = filePath;
     }
 
-
     public String getTextlog() {
         return textlog;
     }
@@ -128,20 +115,7 @@ public class ApkInformation {
     public void setTextlog(String textlog) {
         this.textlog = textlog;
     }
-
-    public boolean isCheckId() {
-        return checkId;
-    }
-
-    public void setCheckId(boolean checkId) {
-        this.checkId = checkId;
-    }
-
     public String getBundleId() {
         return bundleId;
-    }
-
-    public void setBundleId(String bundleId) {
-        this.bundleId = bundleId;
     }
 }

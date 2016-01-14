@@ -37,8 +37,7 @@ import java.util.Iterator;
         id = "other",
         file = "$APP_CONFIG$/" + Constants.PERSISTENCE_FILE_NAME
 )
-}
-        )
+})
 
 public class PgyASPluginKeysManager implements PersistentStateComponent<Element>,CompilationStatusListener {
 

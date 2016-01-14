@@ -33,32 +33,22 @@ public class ShareOnPgyerPanel {
     private JTextField ukeyinput;
     private JComboBox projectcombo;
     private JButton settingBtn;
-    private JLabel labelappkey;
-    private JLabel labelukey;
     private JLabel getappkey;
     private JLabel getukey;
     private JPanel panel;
     private JLabel apkPath;
     private JTextArea uoloadLog;
-    private JLabel warning;
-    private JLabel tips;
-
 
     public ShareOnPgyerDialog shareOnPgyerDialog;
     public Color mainColor;
     public String apkAbsolutePath;
     public ApkInformation apkInformation;
 
-
-
-
     public ShareOnPgyerPanel(final ShareOnPgyerDialog shareOnPgyerDialog) {
 
         this.shareOnPgyerDialog = shareOnPgyerDialog;
         mainColor = new Color(26,188,156);
-
         apkInformation = ApkInformation.getInstance();
-
         getappkey.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -82,7 +72,6 @@ public class ShareOnPgyerPanel {
             public void mouseExited(MouseEvent e) {
             }
         });
-
         getukey.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -106,7 +95,6 @@ public class ShareOnPgyerPanel {
             public void mouseExited(MouseEvent e) {
             }
         });
-
 
         /***********************************与 setupValuesOnUI()  做了类似的事情
          *                                   给 projectCombo  添加选择model  以及数量
@@ -137,8 +125,6 @@ public class ShareOnPgyerPanel {
 
                 // set the selection
                 projectcombo.setSelectedIndex(ModulesManager.instance().getSelectedModuleIndex(previouslySelectedModule.getName()));
-
-
             }
 
             @Override
@@ -148,8 +134,6 @@ public class ShareOnPgyerPanel {
 
             @Override
             public void projectClosed(Project project) {
-
-
             }
 
             @Override
@@ -213,23 +197,19 @@ public class ShareOnPgyerPanel {
 
                         // the file was selected so add it to the text field
                         File file = new File(filePath);
+
                         if (!file.exists() || filePath.toLowerCase().indexOf(".apk") < 0) {
                             filePath = "";
                         }
 
                         apkAbsolutePath = filePath;
-//                        settingBtn.setVisible(false);
                         settingBtn.setText("重新选择文件");
-//                        newsettingBtn.setVisible(true);
-
                         apkPath.setText(splitPath(filePath));
                         apkInformation.initPath(apkAbsolutePath);
 
                         apkInformation.setFilePath(apkAbsolutePath);
 
                         SearchFile.getInstance().initPath(apkInformation.filePath);
-
-
 
                         // save the file path
                         PgyASPluginKeysManager.instance().setApkFilePath(filePath);
@@ -238,9 +218,6 @@ public class ShareOnPgyerPanel {
                 });
             }
         });
-
-
-
     }
 
     public String getAppkeyInput(){
@@ -260,10 +237,6 @@ public class ShareOnPgyerPanel {
         ukeyinput.setText(ukey);
     }
 
-    public void  setWarning(String warningtext){
-        warning.setText(warningtext);
-    }
-
     public JPanel getPanel(){
         return panel;
     }
@@ -281,7 +254,6 @@ public class ShareOnPgyerPanel {
             e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
     }
-
 
     /**
      * Set the default or previously saved values on the UI components
@@ -324,7 +296,6 @@ public class ShareOnPgyerPanel {
 //        }
 
         updateBuildVersionFields();
-
 
     }
     /*********** 判断 apk文件存在,不存在返回"" ***********/
@@ -371,6 +342,4 @@ public class ShareOnPgyerPanel {
     public String getApkPath() {
         return apkPath.getText();
     }
-
-
 }

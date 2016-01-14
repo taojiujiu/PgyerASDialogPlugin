@@ -38,7 +38,6 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
     private JPanel panel;
     private JLabel shorttiltle;
     private JPanel icon;
-
     public JLabel iconimage;
     private JLabel identifer;
 
@@ -48,14 +47,12 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
 
     public InformationOfPgyerPanel(final InformationOfPgyerDialog informationOfPgyerDialog) {
 
-
         this.informationOfPgyerDialog = informationOfPgyerDialog;
         uploadService  = new UploadService();
         apkInformation = ApkInformation.getInstance();
-        String iconpath = apkInformation.getIcon();
 
         icon.setVisible(true);
-
+        shorttiltle.setVisible(false);
 
         EventQueue.invokeLater(new Runnable() {
             @Override
@@ -85,16 +82,8 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
             appname.setText(apkInformation.getName());
             appcodename.setText(apkInformation.getVersionName()+" ( "+apkInformation.getVersionCode()+" ) ");
             identifer.setText(apkInformation.getBundleId());
-
             progressBar.setVisible(false);
-            if(apkInformation.getaShort()!= null){
-                shortUrl.setText(apkInformation.getaShort());
-                shorttiltle.setVisible(true);
-                shortUrl.setVisible(true);
-                upload.setVisible(true);
-                check.setText("已经上传");
-                check.setVisible(true);
-            }
+
             upload.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
@@ -107,7 +96,7 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
                 @Override
                 public void mouseClicked(MouseEvent mouseEvent) {
                     //To change body of implemented methods use File | Settings | File Templates.
-                    browserUrl(shortUrl.getText());
+                    browserUrl(apkInformation.getaShort());
                 }
 
                 @Override
@@ -132,6 +121,7 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
             });
         }
         icon.validate();
+
     }
 
     public JPanel getPanel() {
@@ -143,14 +133,11 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-
-
                 if(!finishedSuccessful){
                     progressBar.setVisible(false);
                     upload.setEnabled(true);
                     check.setVisible(true);
                     check.setText("上传失败，请回到上一步检查APIKEY和UKEY是否合法");
-
                     return;
                 }
 
@@ -160,10 +147,7 @@ public class InformationOfPgyerPanel implements  UploadService.UploadServiceDele
                 shorttiltle.setVisible(true);
                 check.setVisible(true);
                 check.setText("上传成功");
-                shortUrl.setText(ApkInformation.getInstance().getaShort());
-
-
-
+                shortUrl.setText(ApkInformation.getInstance().getaShort() + "  点击打开");
             }
         });
     }

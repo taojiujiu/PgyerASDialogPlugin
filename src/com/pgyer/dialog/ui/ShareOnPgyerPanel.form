@@ -19,6 +19,8 @@
           </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
+          <font size="14"/>
           <horizontalAlignment value="4"/>
           <horizontalTextPosition value="4"/>
           <text value="API KEY"/>
@@ -35,6 +37,7 @@
         <properties>
           <editable value="true"/>
           <enabled value="true"/>
+          <font size="14"/>
           <foreground color="-4473925"/>
           <text value=""/>
           <toolTipText value="在蒲公英网站上获取API KEY"/>
@@ -49,6 +52,7 @@
           </grid>
         </constraints>
         <properties>
+          <font size="14"/>
           <text value="点击获取"/>
         </properties>
       </component>
@@ -61,6 +65,7 @@
           </grid>
         </constraints>
         <properties>
+          <font size="14"/>
           <horizontalAlignment value="4"/>
           <horizontalTextPosition value="4"/>
           <text value="UKEY"/>
@@ -77,6 +82,7 @@
         <properties>
           <editable value="true"/>
           <enabled value="true"/>
+          <font size="14"/>
           <foreground color="-4473925"/>
           <horizontalAlignment value="2"/>
           <text value=""/>
@@ -92,6 +98,7 @@
           </grid>
         </constraints>
         <properties>
+          <font size="14"/>
           <text value="点击获取"/>
         </properties>
       </component>
@@ -104,6 +111,7 @@
           </grid>
         </constraints>
         <properties>
+          <font size="14"/>
           <horizontalAlignment value="4"/>
           <horizontalTextPosition value="4"/>
           <text value="项目选择"/>
@@ -117,7 +125,9 @@
             <maximum-size width="260" height="25"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <font size="14"/>
+        </properties>
       </component>
       <component id="458e3" class="javax.swing.JLabel" binding="tips">
         <constraints>
@@ -144,6 +154,7 @@
           </grid>
         </constraints>
         <properties>
+          <font size="14"/>
           <horizontalAlignment value="4"/>
           <horizontalTextPosition value="4"/>
           <text value="选择文件路径"/>
@@ -158,6 +169,7 @@
           </grid>
         </constraints>
         <properties>
+          <font size="14"/>
           <text value="选择本地文件"/>
         </properties>
       </component>
@@ -171,6 +183,7 @@
         </constraints>
         <properties>
           <enabled value="true"/>
+          <font size="14"/>
           <horizontalAlignment value="4"/>
           <horizontalTextPosition value="4"/>
           <text value="更新Log"/>
@@ -185,6 +198,7 @@
           </grid>
         </constraints>
         <properties>
+          <font size="14"/>
           <text value=""/>
         </properties>
       </component>
@@ -197,6 +211,8 @@
           </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
+          <font size="14"/>
           <foreground color="-15024996"/>
           <text value=""/>
         </properties>

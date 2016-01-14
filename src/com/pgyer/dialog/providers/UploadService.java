@@ -60,21 +60,19 @@ public class UploadService  implements CustomMultiPartEntity.ProgressListener {
                     JSONObject jsonObject = new JSONObject(responseString);
                     JSONObject data = jsonObject.getJSONObject("data");
                     String appShort;
-                    String qrUrl;
+//                    String qrUrl;
                     appShort = data.getString("appShortcutUrl");
-                    qrUrl = data.getString("appQRCodeURL");
+//                    qrUrl = data.getString("appQRCodeURL");
 
                     ApkInformation.getInstance().setaShort(PGY_BASE_URL+appShort);
 
                     if (response.getStatusLine().getStatusCode() == 200) {
-                        ApkInformation.getInstance().setCheckId(true);
 
                         if (UploadService.this.uploadServiceDelegate != null)
                         {
 
                             UploadService.this.uploadServiceDelegate.onUploadFinished(true);
                         }
-
                     }
                     else if (UploadService.this.uploadServiceDelegate != null)
                     {
@@ -99,7 +97,6 @@ public class UploadService  implements CustomMultiPartEntity.ProgressListener {
         if (this.uploadServiceDelegate != null)
             this.uploadServiceDelegate.onProgressChanged(num);
     }
-
 
     /**
      * Upload service callback interface used to notify uploading actions like status or progress
