@@ -33,12 +33,14 @@ public class ShareOnPgyerPanel {
     private JTextField ukeyinput;
     private JComboBox projectcombo;
     private JButton settingBtn;
+    private JLabel labelappkey;
+    private JLabel labelukey;
     private JLabel getappkey;
     private JLabel getukey;
     private JPanel panel;
     private JLabel apkPath;
     private JTextArea uoloadLog;
-
+    private JLabel tips;
     public ShareOnPgyerDialog shareOnPgyerDialog;
     public Color mainColor;
     public String apkAbsolutePath;
@@ -48,7 +50,9 @@ public class ShareOnPgyerPanel {
 
         this.shareOnPgyerDialog = shareOnPgyerDialog;
         mainColor = new Color(26,188,156);
+
         apkInformation = ApkInformation.getInstance();
+
         getappkey.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -72,6 +76,7 @@ public class ShareOnPgyerPanel {
             public void mouseExited(MouseEvent e) {
             }
         });
+
         getukey.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -106,15 +111,11 @@ public class ShareOnPgyerPanel {
                 // get the best matching module for this project and set it's file path
                 Module previouslySelectedModule = ModulesManager.instance().getMostImportantModule();
                 String filePath = previouslySelectedModule.getModuleFilePath();
-
                 filePath = parsefilePath(filePath);
-
                 apkAbsolutePath = filePath;
                 apkInformation.initPath(apkAbsolutePath);
                 apkInformation.setFilePath(apkAbsolutePath);
-
                 apkPath.setText(splitPath(filePath));
-
                 //新建项目,则跟新选择按钮列表
                 PgyASPluginKeysManager.instance().setSelectedModuleName(previouslySelectedModule.getName());
                 String[] modules = ModulesManager.instance().getAllModuleNames();
@@ -122,7 +123,6 @@ public class ShareOnPgyerPanel {
                     // set the model of the modules
                     projectcombo.setModel(new DefaultComboBoxModel(ModulesManager.instance().getAllModuleNames()));
                 }
-
                 // set the selection
                 projectcombo.setSelectedIndex(ModulesManager.instance().getSelectedModuleIndex(previouslySelectedModule.getName()));
             }
@@ -143,46 +143,35 @@ public class ShareOnPgyerPanel {
         });
 
         setupValuesOnUI();
-
         projectcombo.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-
                 PgyASPluginKeysManager.instance().setSelectedModuleName((String) projectcombo.getSelectedItem());
                 /* update the apk path**/
                 Module module = ModulesManager.instance().getModuleByName((String) projectcombo.getSelectedItem());
                 String filePath = ModulesManager.instance().getAndroidApkPath(module);
-
                 filePath = parsefilePath(filePath);
-
                 apkAbsolutePath = filePath;
                 apkInformation.initPath(apkAbsolutePath);
                 apkInformation.setFilePath(apkAbsolutePath);
-
                 SearchFile.getInstance().initPath(apkInformation.filePath);
-
                 apkPath.setText(splitPath(filePath));
-
                 // update the build version fields too
                 updateBuildVersionFields();                                        //未完成,后续添加,初步判定没用
             }
         });
-
 
         settingBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 // create a new file type with the apk extension to be used for file type filtering
                 FileType type = FileTypeManager.getInstance().getFileTypeByExtension("apk");
-
                 // create a descriptor for the file chooser
                 FileChooserDescriptor descriptor = Utils.createSingleFileDescriptor(type);
                 descriptor.setTitle("APK File");
                 descriptor.setDescription("选择APK文件上传到蒲公英");
-
                 // by default open the first opened project root directory
                 VirtualFile fileToSelect = ProjectManager.getInstance().getOpenProjects()[0].getBaseDir();
-
                 // open the file chooser
                 FileChooser.chooseFiles(descriptor, null, fileToSelect, new FileChooser.FileChooserConsumer() {
                     @Override
@@ -194,23 +183,17 @@ public class ShareOnPgyerPanel {
                     public void consume(java.util.List<VirtualFile> virtualFiles) {
 
                         String filePath = virtualFiles.get(0).getPath();
-
                         // the file was selected so add it to the text field
                         File file = new File(filePath);
-
                         if (!file.exists() || filePath.toLowerCase().indexOf(".apk") < 0) {
                             filePath = "";
                         }
-
                         apkAbsolutePath = filePath;
                         settingBtn.setText("重新选择文件");
                         apkPath.setText(splitPath(filePath));
                         apkInformation.initPath(apkAbsolutePath);
-
                         apkInformation.setFilePath(apkAbsolutePath);
-
                         SearchFile.getInstance().initPath(apkInformation.filePath);
-
                         // save the file path
                         PgyASPluginKeysManager.instance().setApkFilePath(filePath);
                         updateBuildVersionFields();
@@ -219,7 +202,6 @@ public class ShareOnPgyerPanel {
             }
         });
     }
-
     public String getAppkeyInput(){
 
         return appkeyinput.getText().trim();
@@ -236,7 +218,6 @@ public class ShareOnPgyerPanel {
     public void setuKeyinput(String ukey){
         ukeyinput.setText(ukey);
     }
-
     public JPanel getPanel(){
         return panel;
     }
@@ -291,12 +272,8 @@ public class ShareOnPgyerPanel {
 
         // set the selection
         /************************************************这块添加一个判断,不然在 本地文件中读取的modul为null时报错*********************************************************************/
-//        if(previouslySelectedModule != null) {
         projectcombo.setSelectedIndex(ModulesManager.instance().getSelectedModuleIndex(previouslySelectedModule.getName()));
-//        }
-
         updateBuildVersionFields();
-
     }
     /*********** 判断 apk文件存在,不存在返回"" ***********/
     public String parsefilePath(String filePath){
@@ -305,7 +282,6 @@ public class ShareOnPgyerPanel {
         }
         // the file was selected so add it to the text field
         File file = new File(filePath) ;
-
         if(!file.exists() || filePath.toLowerCase().indexOf(".apk") < 0)    {
             filePath = "";
         }
@@ -332,7 +308,6 @@ public class ShareOnPgyerPanel {
     public void updateBuildVersionFields() {
         Module module = ModulesManager.instance().getModuleByName((String) projectcombo.getSelectedItem());
         // update the code and name text fields manifest build version code and name values
-
         String[] apk = new String[3];
         if(apkAbsolutePath != null){
             apkInformation.initPath(apkAbsolutePath);
